@@ -1,0 +1,11 @@
+# Binaries
+bin/
+obj/
+*.stack-dump
+
+# Compressed
+*.gz
+
+# Tests
+test/
+*.test
