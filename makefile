@@ -30,14 +30,20 @@ uninstall:
 
 	rm /etc/mimik/docs/LibMSAP/ -rf
 
-${TEST}: ./obj/main.o ./obj/sa.o ./inc/msap.h
+${TEST}: ./obj/main.o ./inc/msap.h ./obj/creation.o ./obj/editing.o ./obj/finding.o
 	${CC} -o ${TEST} ./obj/*.o
 
-${LIB}: ./obj/sa.o
-	ar rcs ${LIB} ./obj/sa.o
+${LIB}: ./obj/sa.o ./obj/creation.o ./obj/editing.o ./obj/finding.o
+	ar rcs ${LIB} ./obj/creation.o ./obj/editing.o ./obj/finding.o
 
 ./obj/main.o: ./inc/msap.h ./src/main.c
 	${CC} -o ./obj/main.o -c ./src/main.c
 
-./obj/sa.o: ./src/sa.c ./inc/msap.h
-	${CC} -o ./obj/sa.o -c ./src/sa.c
+./obj/creation.o: ./src/creation.c ./inc/msap.h
+	${CC} -o ./obj/creation.o -c ./src/creation.c
+
+./obj/editing.o: ./src/editing.c ./inc/msap.h
+	${CC} -o ./obj/editing.o -c ./src/editing.c
+
+./obj/finding.o: ./src/finding.c ./inc/msap.h
+	${CC} -o ./obj/finding.o -c ./src/finding.c
