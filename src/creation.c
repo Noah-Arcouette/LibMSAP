@@ -46,7 +46,17 @@ void saFree (struct MIMIK_STRING_ARRAY sarr)
 
 char* saJoin (struct MIMIK_STRING_ARRAY s, char with)
 {
-	char* out = NULL;
+	register char*  out  = NULL;
+	register size_t size = 1;
+
+	for (register size_t i = 0; i<s.size; i++)
+	{
+		size += 1 + strlen(s.items[i]);
+		out   = (char*)realloc(out, size * sizeof(char));
+
+		strcat(out, s.items[i]);
+		out[size-2] = with;
+	}
 
 	return out;
 }

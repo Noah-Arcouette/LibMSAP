@@ -19,9 +19,9 @@ int main ()
 #include \"useful.h\"\n\
 ", '\n');
 
-	char* out = saJoin(s, ';');
+	char* out = saJoin(s, '+');
 
-	printf("%s", out);
+	printf("%s\n", out);
 
 	free(out);
 
