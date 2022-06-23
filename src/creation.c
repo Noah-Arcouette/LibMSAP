@@ -55,10 +55,31 @@ char* saJoin (struct MIMIK_STRING_ARRAY s, char with)
 		out   = (char*)realloc(out, size * sizeof(char));
 
 		strcat(out, s.items[i]);
-		out[size-2] = with;
+
+		if (i+1 < s.size)
+			out[size-2] = with;
 	}
 
 	return out;
 }
 
-char* saJoinSub (struct MIMIK_STRING_ARRAY s, char* with);
+char* saJoinSub (struct MIMIK_STRING_ARRAY s, char* with)
+{
+	register char*  out  = NULL;
+	register size_t size = 1;
+
+	const size_t withSize = strlen(with);
+
+	for (register size_t i = 0; i<s.size; i++)
+	{
+		size += withSize + strlen(s.items[i]);
+		out   = (char*)realloc(out, size * sizeof(char));
+
+		strcat(out, s.items[i]);
+
+		if (i+1 < s.size)
+			strcat(out, with);
+	}
+
+	return out;
+}

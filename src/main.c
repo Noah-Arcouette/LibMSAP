@@ -19,7 +19,7 @@ int main ()
 #include \"useful.h\"\n\
 ", '\n');
 
-	char* out = saJoin(s, '+');
+	char* out = saJoinSub(s, ":/");
 
 	printf("%s\n", out);
 
