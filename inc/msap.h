@@ -12,8 +12,8 @@ struct MIMIK_STRING_ARRAY
 };
 
 struct MIMIK_STRING_ARRAY saSplit   (char*, char);
-char*                     saJoin    (char);
-char*                     saJoinSub (char*);
+char*                     saJoin    (struct MIMIK_STRING_ARRAY, char);
+char*                     saJoinSub (struct MIMIK_STRING_ARRAY, char*);
 void                      saFree    (struct MIMIK_STRING_ARRAY);
 
 void  saPush   (struct MIMIK_STRING_ARRAY*, char*);

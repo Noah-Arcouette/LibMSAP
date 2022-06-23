@@ -1,6 +1,6 @@
 # NAME
 
-**split** - Split string based on delimiter
+**saSplit** - Split string based on delimiter
 
 # SYNOPSIS
 

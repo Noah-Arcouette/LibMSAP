@@ -2,11 +2,6 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
-// struct MIMIK_STRING_ARRAY
-// {
-// 	char** items;
-// 	size_t size;
-// };
 
 struct MIMIK_STRING_ARRAY saSplit (char* string, char delim)
 {
@@ -49,5 +44,11 @@ void saFree (struct MIMIK_STRING_ARRAY sarr)
 	free(sarr.items);
 }
 
-char* saJoin (char);
-char* saJoinSub (char*);
+char* saJoin (struct MIMIK_STRING_ARRAY s, char with)
+{
+	char* out = NULL;
+
+	return out;
+}
+
+char* saJoinSub (struct MIMIK_STRING_ARRAY s, char* with);

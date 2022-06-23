@@ -1,4 +1,5 @@
 #include <stdio.h>
+#include <stdlib.h>
 #include "msap.h"
 
 int main ()
@@ -18,10 +19,11 @@ int main ()
 #include \"useful.h\"\n\
 ", '\n');
 
-	for (register size_t i = 0; i<s.size; i++)
-	{
-		printf(";%s;\n", s.items[i]);
-	}
+	char* out = saJoin(s, ';');
+
+	printf("%s", out);
+
+	free(out);
 
 	saFree(s);
 
