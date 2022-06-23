@@ -1,13 +1,13 @@
 Creation
 ========
 
- - [ ] Split
+ - [x] Split
  	Split on char
 
- - [ ] Join
+ - [x] Join
  	Join on char
 
- - [ ] JoinSub
+ - [x] JoinSub
  	Join on string
 
 Editing
