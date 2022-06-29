@@ -19,11 +19,12 @@ int main ()
 #include \"useful.h\"\n\
 ", '\n');
 
-	char* out = saJoinSub(s, ":/");
+	saAdd(&s, "test", 5);
 
-	printf("%s\n", out);
-
-	free(out);
+	for (size_t i = 0; i<s.size; i++)
+	{
+		printf("%s\n", s.items[i]);
+	}
 
 	saFree(s);
 
