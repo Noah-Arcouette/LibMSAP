@@ -24,7 +24,7 @@ int main ()
 	for (; 1; )
 	{
 		free(found);
-		found = saSubSearch(s, "#include \"", 1);
+		found = saSubSearch(s, "\"", 1);
 
 		if (*found < 0)
 			break;
