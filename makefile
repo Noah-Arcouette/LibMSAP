@@ -33,7 +33,7 @@ uninstall:
 ${TEST}: ./obj/main.o ./inc/msap.h ./obj/creation.o ./obj/editing.o ./obj/finding.o
 	${CC} -o ${TEST} ./obj/*.o
 
-${LIB}: ./obj/sa.o ./obj/creation.o ./obj/editing.o ./obj/finding.o
+${LIB}: ./obj/creation.o ./obj/editing.o ./obj/finding.o
 	ar rcs ${LIB} ./obj/creation.o ./obj/editing.o ./obj/finding.o
 
 ./obj/main.o: ./inc/msap.h ./src/main.c
