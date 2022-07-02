@@ -8,21 +8,15 @@ int main ()
 #include <stdio.h>\n\
 #include <stdlib.h>\n\
 #include <unistd.h>\n\
-#include <unistd.h>\n\
 #include <string.h>\n\
-#include <unistd.h>\n\
 #include <signal.h>\n\
 #include \"conf.h\"\n\
 #include \"settings.h\"\n\
-#include <unistd.h>\n\
-#include <unistd.h>\n\
 #include \"reader.h\"\n\
 #include \"styling.h\"\n\
 #include \"split.h\"\n\
-#include <unistd.h>\n\
 #include \"chars.h\"\n\
 #include \"useful.h\"\n\
-#include <unistd.h>\n\
 ", '\n');
 
 	ssize_t *found = NULL;
@@ -30,7 +24,7 @@ int main ()
 	for (; 1; )
 	{
 		free(found);
-		found = saSearch(s, "#include <unistd.h>", 1);
+		found = saSubSearch(s, "#include \"", 1);
 
 		if (*found < 0)
 			break;
