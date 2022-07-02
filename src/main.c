@@ -20,10 +20,11 @@ int main ()
 ", '\n');
 
 	saAdd(&s, "test", 5);
+	saRemove(&s, 5);
 
 	for (size_t i = 0; i<s.size; i++)
 	{
-		printf("%s\n", s.items[i]);
+		printf("%ld %s\n", i, s.items[i]);
 	}
 
 	saFree(s);

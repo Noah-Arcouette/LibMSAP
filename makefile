@@ -1,5 +1,5 @@
 CFLAGS =
-CC     = cc -Wall -Wextra -O2 -std=gnu18 -I./inc ${CFLAGS}
+CC     = cc -g -Wall -Wextra -O2 -std=gnu18 -I./inc ${CFLAGS}
 OUT    = msap
 TEST   = ./bin/${OUT}_TEST
 LIB    = ./bin/lib${OUT}.a
