@@ -51,4 +51,4 @@ saFree(s);
 
 **free** Free string array
 
-**searchSub** Search for sub-string in string array 
+**subSearch** Search for sub-string in string array 
