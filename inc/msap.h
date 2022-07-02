@@ -21,7 +21,7 @@ char* saPop    (struct MIMIK_STRING_ARRAY*);
 void  saRemove (struct MIMIK_STRING_ARRAY*, size_t);
 void  saAdd    (struct MIMIK_STRING_ARRAY*, char*, size_t);
 
-ssize_t* saSearch    (struct MIMIK_STRING_ARRAY*, char*);
-ssize_t* saSubSearch (struct MIMIK_STRING_ARRAY*, char*);
+ssize_t* saSearch    (struct MIMIK_STRING_ARRAY, char*, ssize_t);
+ssize_t* saSubSearch (struct MIMIK_STRING_ARRAY, char*, ssize_t);
 
 #endif

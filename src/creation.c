@@ -46,18 +46,24 @@ void saFree (struct MIMIK_STRING_ARRAY sarr)
 
 char* saJoin (struct MIMIK_STRING_ARRAY s, char with)
 {
-	register char*  out  = NULL;
+	register char  *out  = (char*)malloc(1 * sizeof(char));
 	register size_t size = 1;
+	*out = 0;
 
 	for (register size_t i = 0; i<s.size; i++)
 	{
-		size += 1 + strlen(s.items[i]);
+		size += strlen(s.items[i]);
 		out   = (char*)realloc(out, size * sizeof(char));
 
 		strcat(out, s.items[i]);
 
+		out = (char*)realloc(out, ++size * sizeof(char));
+
 		if (i+1 < s.size)
+		{
+			out[size-1] = 0;
 			out[size-2] = with;
+		}
 	}
 
 	return out;
@@ -65,21 +71,26 @@ char* saJoin (struct MIMIK_STRING_ARRAY s, char with)
 
 char* saJoinSub (struct MIMIK_STRING_ARRAY s, char* with)
 {
-	register char*  out  = NULL;
-	register size_t size = 1;
-
+	register char  *out   = (char*)malloc(1 * sizeof(char));
+	register size_t size  = 1;
 	const size_t withSize = strlen(with);
+	*out = 0;
 
 	for (register size_t i = 0; i<s.size; i++)
 	{
-		size += withSize + strlen(s.items[i]);
+		size += strlen(s.items[i]);
 		out   = (char*)realloc(out, size * sizeof(char));
 
 		strcat(out, s.items[i]);
 
-		if (i+1 < s.size)
-			strcat(out, with);
-	}
+		size += withSize;
+		out   = (char*)realloc(out, size * sizeof(char));
 
+		if (i+1 < s.size)
+		{
+			strcat(out, with);
+		}
+	}
+	
 	return out;
 }

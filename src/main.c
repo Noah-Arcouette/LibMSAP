@@ -8,25 +8,47 @@ int main ()
 #include <stdio.h>\n\
 #include <stdlib.h>\n\
 #include <unistd.h>\n\
+#include <unistd.h>\n\
 #include <string.h>\n\
+#include <unistd.h>\n\
 #include <signal.h>\n\
 #include \"conf.h\"\n\
 #include \"settings.h\"\n\
+#include <unistd.h>\n\
+#include <unistd.h>\n\
 #include \"reader.h\"\n\
 #include \"styling.h\"\n\
 #include \"split.h\"\n\
+#include <unistd.h>\n\
 #include \"chars.h\"\n\
 #include \"useful.h\"\n\
+#include <unistd.h>\n\
 ", '\n');
 
-	saAdd(&s, "test", 5);
-	saRemove(&s, 5);
+	ssize_t *found = NULL;
 
-	for (size_t i = 0; i<s.size; i++)
+	for (; 1; )
 	{
-		printf("%ld %s\n", i, s.items[i]);
+		free(found);
+		found = saSearch(s, "#include <unistd.h>", 1);
+
+		if (*found < 0)
+			break;
+
+		// printf("%ld %s\n", *found, s.items[*found]);
+		saRemove(&s, *found);
 	}
 
+	// for (size_t i = 0; i<s.size; i++)
+	// 	printf("%ld %s\n", i, s.items[i]);
+
+	char *out = saJoin(s, '\n');
+
+	puts(out);
+
+	free(out);
+
+	free(found);
 	saFree(s);
 
 	return 0;
