@@ -17,6 +17,9 @@ int main ()
 #include \"split.h\"\n\
 #include \"chars.h\"\n\
 #include \"useful.h\"\n\
+\n\
+main();\n\
+\n\
 ", '\n');
 
 	ssize_t *found = NULL;

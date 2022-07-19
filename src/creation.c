@@ -6,8 +6,9 @@
 struct MIMIK_STRING_ARRAY saSplit (char* string, char delim)
 {
 	struct MIMIK_STRING_ARRAY sarr;
-	sarr.items  = (char**)malloc(1 * sizeof(char*));
-	*sarr.items = (char*)NULL;
+	sarr.items   = (char**)malloc(1 * sizeof(char*));
+	*sarr.items  = (char*)malloc(1 * sizeof(char));
+	**sarr.items = (char)0;
 	sarr.size   = 1;
 
 	register size_t size = 1;
@@ -16,9 +17,11 @@ struct MIMIK_STRING_ARRAY saSplit (char* string, char delim)
 	{
 		if (*string == delim)
 		{
-			sarr.items = (char**)realloc(sarr.items, (++sarr.size) * sizeof(char*));
-			sarr.items[sarr.size-1] = (char*)NULL;
-			size = 1;
+			move:
+				sarr.items = (char**)realloc(sarr.items, (++sarr.size) * sizeof(char*));
+				sarr.items[sarr.size-1]  = (char*)malloc(1 * sizeof(char));
+				*sarr.items[sarr.size-1] = (char)0;
+				size = 1;
 
 			continue;
 		}
@@ -26,6 +29,11 @@ struct MIMIK_STRING_ARRAY saSplit (char* string, char delim)
 		sarr.items[sarr.size-1] = realloc(sarr.items[sarr.size-1], ++size);
 		sarr.items[sarr.size-1][size-1] = 0;
 		sarr.items[sarr.size-1][size-2] = *string;
+
+		if (*(string+1) == 0)
+		{
+			goto move;
+		}
 	}
 
 	sarr.size--;
