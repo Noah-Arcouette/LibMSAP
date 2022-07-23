@@ -5,12 +5,12 @@ Mimik String Array Parsing Library
 
 # Install
 
-`sudo make install`
+`./install`
 
 
 # Uninstall
 
-`sudo make uninstall`
+`./uninstall`
 
 
 # Build
