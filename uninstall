@@ -1,0 +1,8 @@
+#!/bin/sh
+
+make clean
+
+rm /lib/libmsap.a -f
+rm /usr/include/msap.h -f
+
+rm /etc/mimik/docs/LibMSAP/ -rf

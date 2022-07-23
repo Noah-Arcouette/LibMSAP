@@ -1,0 +1,13 @@
+#!/bin/sh
+
+mkdir -p ./bin/ ./obj/
+
+make build CFLAGS="$1" VERSION="1.1"
+
+sudo cp ./bin/libmsap.a /lib/libmsap.a
+sudo cp ./inc/msap.h /usr/include/msap.h
+
+sudo mkdir -p /etc/mimik/docs/LibMSAP
+sudo cp ./doc/* /etc/mimik/docs/LibMSAP/
+
+printf "\x1b[1;32mInstalled!\x1b[0m\n"
